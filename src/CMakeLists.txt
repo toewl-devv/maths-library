@@ -1,5 +1,6 @@
 add_library(maths-lib STATIC
     vector2.cpp
+    vector3.cpp
 )
 
 target_include_directories(maths-lib
