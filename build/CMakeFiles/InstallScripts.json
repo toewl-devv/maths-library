@@ -1,9 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"/Users/tal/Projects/cpp/02-maths-lib/build/cmake_install.cmake",
-		"/Users/tal/Projects/cpp/02-maths-lib/build/src/cmake_install.cmake",
-		"/Users/tal/Projects/cpp/02-maths-lib/build/tests/cmake_install.cmake"
-	],
-	"Parallel" : false
-}
