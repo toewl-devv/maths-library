@@ -1,0 +1,25 @@
+// makes header file only be included one
+#pragma once
+
+#include <ostream>
+
+namespace maths {
+
+    class Vector2 {
+        public:
+            double x;
+            double y;
+
+            Vector2(double x, double y);
+
+            double magnitude() const;
+            
+            Vector2 operator+(const Vector2 &v);
+            Vector2 operator-(const Vector2 &v);
+
+            double operator*(const Vector2 &v);
+            bool operator==(const Vector2 &v);
+
+            friend std::ostream& operator<<(std::ostream& os, const Vector2& v);
+    };
+}

@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/Users/tal/Projects/cpp/02-maths-lib/build/src",
+  "command": "/usr/bin/c++  -I/Users/tal/Projects/cpp/02-maths-lib/include  -arch arm64 -o CMakeFiles/maths-lib.dir/vector2.cpp.o -c /Users/tal/Projects/cpp/02-maths-lib/src/vector2.cpp",
+  "file": "/Users/tal/Projects/cpp/02-maths-lib/src/vector2.cpp",
+  "output": "src/CMakeFiles/maths-lib.dir/vector2.cpp.o"
+},
+{
+  "directory": "/Users/tal/Projects/cpp/02-maths-lib/build/tests",
+  "command": "/usr/bin/c++  -I/Users/tal/Projects/cpp/02-maths-lib/include  -arch arm64 -o CMakeFiles/test1.dir/test1.cpp.o -c /Users/tal/Projects/cpp/02-maths-lib/tests/test1.cpp",
+  "file": "/Users/tal/Projects/cpp/02-maths-lib/tests/test1.cpp",
+  "output": "tests/CMakeFiles/test1.dir/test1.cpp.o"
+}
+]

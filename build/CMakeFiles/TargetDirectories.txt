@@ -1,0 +1,8 @@
+/Users/tal/Projects/cpp/02-maths-lib/build/CMakeFiles/edit_cache.dir
+/Users/tal/Projects/cpp/02-maths-lib/build/CMakeFiles/rebuild_cache.dir
+/Users/tal/Projects/cpp/02-maths-lib/build/src/CMakeFiles/maths-lib.dir
+/Users/tal/Projects/cpp/02-maths-lib/build/src/CMakeFiles/edit_cache.dir
+/Users/tal/Projects/cpp/02-maths-lib/build/src/CMakeFiles/rebuild_cache.dir
+/Users/tal/Projects/cpp/02-maths-lib/build/tests/CMakeFiles/test1.dir
+/Users/tal/Projects/cpp/02-maths-lib/build/tests/CMakeFiles/edit_cache.dir
+/Users/tal/Projects/cpp/02-maths-lib/build/tests/CMakeFiles/rebuild_cache.dir

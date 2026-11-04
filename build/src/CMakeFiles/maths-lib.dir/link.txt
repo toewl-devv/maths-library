@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmaths-lib.a "CMakeFiles/maths-lib.dir/vector2.cpp.o"
+/usr/bin/ranlib libmaths-lib.a
