@@ -19,15 +19,15 @@ namespace maths {
     }
 
     double Vector3::operator*(const Vector3 &v) {
-        return x * v.x + y * v.y;
+        return x * v.x + y * v.y + z * v.z;
     }
 
     bool Vector3::operator==(const Vector3& v) {
-        return (x == v.x && y == v.y);
+        return (x == v.x && y == v.y && z == v.z);
     }
 
     std::ostream& operator<<(std::ostream& os, const Vector3& v) {
-        return os << "(" << v.x << ", " << v.y << ")";
+        return os << "(" << v.x << ", " << v.y << ", " << v.z << ")";
     }
 
 }
