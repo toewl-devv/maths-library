@@ -34,7 +34,7 @@ namespace maths {
     }
 
     /*
-    Vector2 int::operator*(Vector2 &v) { // figure this out
+    Vector2 int::operator*(Vector2 &v) { //TODO figure this out
     }
     */
 
