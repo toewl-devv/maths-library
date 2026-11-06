@@ -15,15 +15,18 @@ namespace maths {
             double magnitude() const;
             void normalise();
             
-            Vector2 operator+(const Vector2 &v);
-            Vector2 operator-(const Vector2 &v);
-            double operator*(const Vector2 &v);
+            Vector2 operator+(const Vector2 &v) const;
+            Vector2 operator-(const Vector2 &v) const;
+            double operator*(const Vector2 &v) const;
 
-            Vector2 operator*(double k);
+            Vector2 operator*(double k) const;
+
             Vector2 operator/(double k);
 
             bool operator==(const Vector2 &v);
 
             friend std::ostream& operator<<(std::ostream& os, const Vector2& v);
     };
+
+    Vector2 operator*(double k, const Vector2 &v);
 }

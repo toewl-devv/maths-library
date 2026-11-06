@@ -17,26 +17,25 @@ namespace maths {
         y /= mag;
     }
 
-    Vector2 Vector2::operator+(const Vector2 &v) {
+    Vector2 Vector2::operator+(const Vector2 &v) const {
         return Vector2(x + v.x, y + v.y);
     }
 
-    Vector2 Vector2::operator-(const Vector2 &v) {
+    Vector2 Vector2::operator-(const Vector2 &v) const {
         return Vector2(x - v.x, y - v.y);
     }
 
-    double Vector2::operator*(const Vector2 &v) {
+    double Vector2::operator*(const Vector2 &v) const {
         return x * v.x + y * v.y;
     }
 
-    Vector2 Vector2::operator*(double k) {
+    Vector2 Vector2::operator*(double k) const {
         return Vector2(k * x, k* y);
     }
 
-    /*
-    Vector2 int::operator*(Vector2 &v) { //TODO figure this out
+    Vector2 operator*(double k, const Vector2 &v) {
+        return v * k;
     }
-    */
 
     Vector2 Vector2::operator/(double k) {
         if (k == 0) {
