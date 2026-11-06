@@ -1,6 +1,7 @@
-#include "maths/vector3.hpp"
 #include <iostream>
-#include <maths/vector2.hpp>
+#include "maths/vector3.hpp"
+#include "maths/vector2.hpp"
+#include "maths/matrix.hpp"
 
 using namespace std;
 int main() {
@@ -21,6 +22,7 @@ int main() {
     cout << (c == (c-d) + d) << endl;
     cout << c * d << endl;
     */
+    /*
     double mag = a.magnitude();
     cout << a << endl;
     a.normalise();
@@ -30,6 +32,17 @@ int main() {
     cout << "By scalar k=2mag: " << a * 2*mag << endl;
 
     cout << b << " is b, 2-division: " << b / 2 << endl;
+    */
 
+    maths::Matrix m({{1, 2}, {3, 4}});
+    
+    maths::Matrix m2({
+                {1, -2, 3, 4},
+                {-4, 5, -6, 6},
+                {7, -8, 9, 9},
+                {2, 6, 7, 3}
+            });
+    cout << m.det() << endl;
+    cout << m2.det() << endl;
 
 }
