@@ -44,7 +44,6 @@ namespace maths {
         return Vector2(x / k, y / k);
     }
 
-
     bool Vector2::operator==(const Vector2& v) {
         return (x == v.x && y == v.y);
     }

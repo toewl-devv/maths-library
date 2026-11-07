@@ -34,7 +34,7 @@ namespace maths {
                     nextmatr.values[row][j] = values[row+1][current_column];
                 }
             }
-            det += ((i % 2 == 0) * 2 - 1) * nextmatr.det();
+            det += ((i % 2 == 0) * 2 - 1) * values[0][i] * nextmatr.det();
         }
         return det;
     }
