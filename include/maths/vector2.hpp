@@ -18,7 +18,7 @@ namespace maths {
             Vector2 operator+(const Vector2 &v) const;
             Vector2 operator-(const Vector2 &v) const;
             double operator*(const Vector2 &v) const;
-
+ 
             Vector2 operator*(double k) const;
 
             Vector2 operator/(double k);

@@ -42,7 +42,27 @@ int main() {
                 {7, -8, 9, 9},
                 {2, 6, 7, 3}
             });
+
+    maths::Matrix m3({
+            {1, 2, 3, 4},
+            {1, 4, 2, 5},
+            {0, 0, 5, -2.5},
+        });
+
+    maths::Matrix m4({
+            {-1, -2, -3, -4},
+            {1, 4, 2, 5},
+            {0, 0, 5, -2.5},
+        });
+    /*
     cout << m.det() << endl;
     cout << m2.det() << endl;
+    //cout << m3.det() << endl;
+    maths::Matrix m34 = m3 + m4;
+    cout << m34 << endl;
+    cout << "Multiply test" << endl;
+    cout << m3 * m2 << endl;
+    */
 
+    cout << (2 * m == m * 2) << endl;
 }

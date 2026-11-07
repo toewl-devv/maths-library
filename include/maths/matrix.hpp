@@ -1,5 +1,6 @@
 #pragma once
 
+#include <ostream>
 #include <vector>
 
 namespace maths {
@@ -16,5 +17,18 @@ namespace maths {
             double det() const;
 
             Matrix transpose() const;
+
+            Matrix operator+(const Matrix &m) const;
+            Matrix operator-(const Matrix &m) const;
+            Matrix operator*(const Matrix &m) const;
+
+            Matrix operator/(double k) const;
+            Matrix operator*(double k) const;
+
+            bool operator==(const Matrix &m);
+
+            friend std::ostream& operator<<(std::ostream& os, const Matrix& m);
     };
+
+    Matrix operator*(double k, const Matrix &m);
 }

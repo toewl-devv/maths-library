@@ -16,8 +16,7 @@ namespace maths {
         columns(data[0].size()) //TODO add error handling incase its empty!
         {}
 
-    double Matrix::det() const {
-        if (rows != columns) {
+    double Matrix::det() const { if (rows != columns) {
             throw std::runtime_error("can only find the determinant of square matrices");
         }
         if (rows == 2) {
@@ -38,4 +37,100 @@ namespace maths {
         }
         return det;
     }
+
+    Matrix Matrix::operator+(const Matrix &m) const {
+        if (rows != m.rows || columns != m.columns) {
+            throw std::runtime_error("can only add matrices of the same size");
+        }
+
+        vector<vector<double>> newmatrix = vector<vector<double>>(rows, vector<double>(columns, 0.0));
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                newmatrix[i][j] = values[i][j] + m.values[i][j];
+            }
+        }
+        return Matrix(newmatrix);
+    }
+
+    Matrix Matrix::operator-(const Matrix &m) const {
+        if (rows != m.rows || columns != m.columns) {
+            throw std::runtime_error("can only subtract matrices of the same size");
+        }
+
+        vector<vector<double>> newmatrix = vector<vector<double>>(rows, vector<double>(columns, 0.0));
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                newmatrix[i][j] = values[i][j] - m.values[i][j];
+            }
+        }
+        return Matrix(newmatrix);
+    }
+
+    Matrix Matrix::operator*(const Matrix &m) const {
+        if (columns != m.rows) {
+            throw std::runtime_error("TODO"); //TODO
+        }
+
+        Matrix newmatrix = Matrix(rows, m.columns);
+
+        for (int r = 0; r < newmatrix.rows; r++) {
+            for (int c = 0; c < newmatrix.columns; c++) {
+                for (int k = 0; k < columns; k++) {
+                    newmatrix.values[r][c] += values[r][k] * m.values[k][c];
+                }
+            }
+        }
+
+        return newmatrix;
+    }
+
+    Matrix Matrix::operator*(double k) const {
+        vector<vector<double>> newmatrix = vector<vector<double>>(rows, vector<double>(columns, 0.0));
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                newmatrix[i][j] = values[i][j] * k;
+            }
+        }
+        return Matrix(newmatrix);
+    }
+
+    Matrix operator*(double k, const Matrix &m) {
+        return m * k;
+    }
+
+    Matrix Matrix::operator/(double k) const {
+        if (k == 0) {
+            throw std::invalid_argument("cannot divide a matrix by 0");
+        }
+        vector<vector<double>> newmatrix = vector<vector<double>>(rows, vector<double>(columns, 0.0));
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                newmatrix[i][j] = values[i][j] / k;
+            }
+        }
+        return Matrix(newmatrix);
+    }
+
+    bool Matrix::operator==(const Matrix& m) {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                if (values[i][j] != m.values[i][j]) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    std::ostream& operator<<(std::ostream& os, const Matrix& m) {
+        for (int i = 0; i < m.rows; i++) {
+            for (int j = 0; j < m.columns; j++) {
+                os << m.values[i][j] << " ";
+            }
+            os << "\n";
+        }
+        return os;
+    }
+
 }

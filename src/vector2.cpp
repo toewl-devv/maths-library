@@ -30,7 +30,7 @@ namespace maths {
     }
 
     Vector2 Vector2::operator*(double k) const {
-        return Vector2(k * x, k* y);
+        return Vector2(k * x, k * y);
     }
 
     Vector2 operator*(double k, const Vector2 &v) {
