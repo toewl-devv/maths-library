@@ -16,7 +16,19 @@ namespace maths {
         columns(data[0].size()) //TODO add error handling incase its empty!
         {}
 
-    double Matrix::det() const { if (rows != columns) {
+
+    Matrix Matrix::transpose() const {
+        Matrix transposed_matrix = Matrix(columns, rows);
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                transposed_matrix.values[j][i] = values[i][j];
+            }
+        }
+        return transposed_matrix;
+    }
+
+    double Matrix::det() const { 
+        if (rows != columns) {
             throw std::runtime_error("can only find the determinant of square matrices");
         }
         if (rows == 2) {
