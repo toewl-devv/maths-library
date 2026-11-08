@@ -28,6 +28,8 @@ namespace maths {
             bool operator==(const Matrix &m);
 
             friend std::ostream& operator<<(std::ostream& os, const Matrix& m);
+
+            void swap(int r1, int r2);
     };
 
     Matrix operator*(double k, const Matrix &m);

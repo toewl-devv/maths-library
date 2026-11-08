@@ -60,4 +60,7 @@ int main() {
     cout << "Transposed:" << endl;
 
     cout << m3.transpose() << endl;
+    
+    m3.swap(1, 2);
+    cout << m3 << endl;
 }

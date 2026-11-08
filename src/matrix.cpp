@@ -1,10 +1,13 @@
 #include "maths/matrix.hpp"
+#include <exception>
 #include <stdexcept>
 #include <vector>
 
 using namespace std;
 
 namespace maths {
+
+    // Initialisation
     Matrix::Matrix(int m, int n)
         : rows(m), columns(n),
         values(m, vector<double>(n, 0.0))
@@ -12,11 +15,17 @@ namespace maths {
 
     Matrix::Matrix(vector<vector<double>> data)
         : values(data),
-        rows(data.size()),
-        columns(data[0].size()) //TODO add error handling incase its empty!
-        {}
+        rows(data.size())
+        {
+            if (data.size() == 0) {
+                columns = 0;
+            } else {
+                columns = data[0].size();
+            }
+        }
 
 
+    //Whole-matrix operations
     Matrix Matrix::transpose() const {
         Matrix transposed_matrix = Matrix(columns, rows);
         for (int i = 0; i < rows; i++) {
@@ -50,6 +59,20 @@ namespace maths {
         return det;
     }
 
+    void Matrix::swap(int r1, int r2) {
+        if (r1 < 1 || r2 < 1) {
+            throw std::runtime_error("only non-negative row numbers allowed");
+        }
+        if (r1 > rows || r2 > rows) {
+            throw std::runtime_error("rows numbers must be between 1 and number of rows");
+        }
+        vector<double> temp = values[r1 - 1];
+        values[r1 - 1] = values[r2 - 1];
+        values[r2 - 1] = temp;
+    }
+
+
+    //Operations
     Matrix Matrix::operator+(const Matrix &m) const {
         if (rows != m.rows || columns != m.columns) {
             throw std::runtime_error("can only add matrices of the same size");
@@ -80,7 +103,7 @@ namespace maths {
 
     Matrix Matrix::operator*(const Matrix &m) const {
         if (columns != m.rows) {
-            throw std::runtime_error("TODO"); //TODO
+            throw std::runtime_error("can only multiply r*n matrices with n*m matrices");
         }
 
         Matrix newmatrix = Matrix(rows, m.columns);
@@ -92,7 +115,6 @@ namespace maths {
                 }
             }
         }
-
         return newmatrix;
     }
 
@@ -123,6 +145,8 @@ namespace maths {
         return Matrix(newmatrix);
     }
 
+
+    //Misc
     bool Matrix::operator==(const Matrix& m) {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
@@ -134,6 +158,7 @@ namespace maths {
 
         return true;
     }
+
 
     std::ostream& operator<<(std::ostream& os, const Matrix& m) {
         for (int i = 0; i < m.rows; i++) {
