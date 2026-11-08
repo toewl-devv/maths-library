@@ -63,4 +63,8 @@ int main() {
     
     m3.swap(1, 2);
     cout << m3 << endl;
+    m3.scale(3, 1.5);
+    cout << m3 << endl;
+    m3.addmultiple(1, 2.0, 2);
+    cout << m3 << endl;
 }

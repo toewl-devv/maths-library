@@ -30,6 +30,8 @@ namespace maths {
             friend std::ostream& operator<<(std::ostream& os, const Matrix& m);
 
             void swap(int r1, int r2);
+            void scale(int row, double lambda);
+            void addmultiple(int r1, double lambda, int r2);
     };
 
     Matrix operator*(double k, const Matrix &m);

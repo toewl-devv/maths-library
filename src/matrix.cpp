@@ -1,5 +1,4 @@
 #include "maths/matrix.hpp"
-#include <exception>
 #include <stdexcept>
 #include <vector>
 
@@ -71,6 +70,30 @@ namespace maths {
         values[r2 - 1] = temp;
     }
 
+    void Matrix::scale(int row, double lambda) {
+        if (lambda == 0) {
+            throw std::range_error("lambda must be non-zero");
+        }
+        if (row > rows || row < 1) {
+            throw std::range_error("row number must be between 1 and the number of rows");
+        }
+        for (int j = 0; j < columns; j++) {
+            values[row - 1][j] *= lambda;
+        }
+    }
+
+    void Matrix::addmultiple(int r1, double lambda, int r2) {
+        if (r1 < 1 || r2 < 1) {
+            throw std::runtime_error("only non-negative row numbers allowed");
+        }
+        if (r1 > rows || r2 > rows) {
+            throw std::runtime_error("rows numbers must be between 1 and number of rows");
+        }
+        for (int j = 0; j < columns; j++) {
+            values[r2 - 1][j] += lambda * values[r1 - 1][j];
+        }
+    }
+
 
     //Operations
     Matrix Matrix::operator+(const Matrix &m) const {
@@ -136,7 +159,9 @@ namespace maths {
         if (k == 0) {
             throw std::invalid_argument("cannot divide a matrix by 0");
         }
-        vector<vector<double>> newmatrix = vector<vector<double>>(rows, vector<double>(columns, 0.0));
+        vector<vector<double>> newmatrix = vector<vector<double>>(
+                    rows, vector<double>(columns, 0.0)
+                );
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 newmatrix[i][j] = values[i][j] / k;
